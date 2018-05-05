@@ -1,0 +1,25 @@
+{
+  "name": "cesium-plugin",
+  "version": "1.0.0",
+  "description": "Cesium插件",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bingqixuan/Cesium-Plugin.git"
+  },
+  "keywords": [
+    "cesium"
+  ],
+  "author": "bingqixuan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bingqixuan/Cesium-Plugin/issues"
+  },
+  "homepage": "https://github.com/bingqixuan/Cesium-Plugin#readme",
+  "devDependencies": {
+    "cesium": "^1.45.0"
+  }
+}
