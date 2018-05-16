@@ -51,7 +51,7 @@ const computeCentroidOfPolygon = function (positions) {
 };
 
 /**
- * 计算面积
+ * 计算三角形面积
  * @param pos1 {Cartesian3} 第一点
  * @param pos2 {Cartesian3} 第二点
  * @param pos3 {Cartesian3} 第三点
