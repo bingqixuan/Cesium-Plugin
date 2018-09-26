@@ -11,7 +11,7 @@ Cesium测量工具类,可以实现贴地、贴模型绘制、量算（量高、�
 
 使用见DrawTool.html
 
-### 3. NavigationCtrol.js
+### 3. NavigationControl.js
 仿mapbox地图导航控件
 
 
