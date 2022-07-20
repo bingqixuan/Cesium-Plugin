@@ -1,10 +1,2 @@
-# node-waf configuration
-.lock-wscript
-
-# Dependency directory
-node_modules/
-
-# IDE config
-.idea
-
-
+/node_modules
+/dist

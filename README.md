@@ -1,20 +1,26 @@
 # Cesium-Plugin
-Cesium插件
 
-在html中通过script标签引入即可。
+采用ts+rollup编写的Cesium插件，适配cesium版本（1.70+）。
 
-### 1. CoordinateTransform.js
-Cesium坐标转换类
+## 打包
 
-### 2. CesiumMeasure.min.js
-Cesium测量工具类,可以实现贴地、贴模型绘制、量算（量高、长度测量、面积测量）。
+```bash
+npm install
+npm run build
+```
 
-使用见DrawTool.html
+## 前端加载
 
-### 3. NavigationControl.js
-仿mapbox地图导航控件
+在前端页面用script标签引入即可。
 
+```html
+    <script src="https://cesium.com/downloads/cesiumjs/releases/1.74/Build/Cesium/Cesium.js"></script>
+    <script src="../dist/cesium-plugin.js"></script>
+```
 
----
+利用全局变量CesiumPlugin进行开发。
 
-接下来进行npm模块改造。。。。
+```javascript
+    const a = CesiumPlugin.Calculation.getBearing(Cesium.Cartesian3.fromDegrees(112, 34), Cesium.Cartesian3.fromDegrees(112, 38));
+    console.log(a);
+```

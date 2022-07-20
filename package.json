@@ -1,25 +1,24 @@
 {
   "name": "cesium-plugin",
   "version": "1.0.0",
-  "description": "Cesium插件",
-  "main": "index.js",
+  "description": "",
+  "main": "src/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "rollup -c"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/bingqixuan/Cesium-Plugin.git"
-  },
-  "keywords": [
-    "cesium"
-  ],
-  "author": "bingqixuan",
+  "author": "",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/bingqixuan/Cesium-Plugin/issues"
-  },
-  "homepage": "https://github.com/bingqixuan/Cesium-Plugin#readme",
   "devDependencies": {
-    "cesium": "^1.45.0"
+    "@rollup/plugin-commonjs": "^22.0.0",
+    "@rollup/plugin-node-resolve": "^13.3.0",
+    "@rollup/plugin-typescript": "^8.3.3",
+    "rollup": "^2.75.7",
+    "rollup-plugin-peer-deps-external": "^2.2.4",
+    "rollup-plugin-terser": "^7.0.2",
+    "tslib": "^2.4.0",
+    "typescript": "^4.7.4"
+  },
+  "dependencies": {
+    "@types/cesium": "^1.70.0"
   }
 }
