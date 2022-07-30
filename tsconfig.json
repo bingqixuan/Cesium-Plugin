@@ -26,7 +26,8 @@
         "checkJs": false,
         "allowJs": false,
         "esModuleInterop": true,
-        "importHelpers": false
+        "importHelpers": false,
+        "noImplicitAny": false
     },
     "include": ["src/**/*"],
     "exclude": ["node_modules/**/*"]

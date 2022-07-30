@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://cesium.com/downloads/cesiumjs/releases/1.94/Build/Cesium/Cesium.js"></script>
+    <link href="https://cesium.com/downloads/cesiumjs/releases/1.95/Build/Cesium/Widgets/widgets.css" rel="stylesheet">
+    <style>
+        @import url(main.css);
+    </style>
+  </head>
+  <body>
+    <div id="MapContainer" style="width: 100%;height: 100%"></div>
+    <script src="../dist_other/OfflineCache.min.js"></script>
+    <script>
+      OfflineCache.ruleList.add("*");
+      let viewer = new Cesium.Viewer("MapContainer", {
+        imageryProvider: new Cesium.UrlTemplateImageryProvider({
+          url: "https://c.tile.thunderforest.com/transport/{z}/{x}/{y}.png",
+          tilingScheme: new Cesium.WebMercatorTilingScheme(),
+          maximumLevel: 19,
+        }),
+        timeline: false,
+        animation: false,
+      });
+
+      setTimeout(() => {
+        const tileSet = viewer.scene.primitives.add(
+          new Cesium.Cesium3DTileset({
+            url: "http://101.43.223.126:3000/Resources/3DTiles-TianYi/tileset.json",
+            maximumScreenSpaceError: 1,
+          })
+        );
+
+        viewer.flyTo(tileSet).then();
+      }, 3000);
+    </script>
+  </body>
+</html>

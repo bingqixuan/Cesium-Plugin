@@ -1,0 +1,106 @@
+.cm_container{
+  position: fixed;
+  opacity: 0;
+  transform: scale(0);
+  transition: transform 0.1s;
+  transform-origin: top left;
+  padding: 0;
+}
+
+.cm_container.display{
+  opacity: 1;
+  transform: scale(1);
+}
+
+.cm_container, .cm_container *{
+  box-sizing: border-box;
+}
+
+.cm_container *{
+  position: relative;
+}
+
+.cm_container ul{
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  background-color: #2d2d2d;
+  box-shadow: 0 0 5px #000000;
+  border-radius: 1px;
+}
+
+.cm_container li{
+  padding: 5px 10px;
+  padding-right: 1.7em;
+  cursor: pointer;
+  white-space: nowrap;
+  color: #ccc;
+}
+
+.cm_container li:hover{
+  background-color: #242424;
+}
+
+.cm_container li .cm_icon_span{
+  width: 1.5em;
+  height: 1.2em;
+  vertical-align: bottom;
+  display: inline-block;
+  margin-right: 5px;
+  padding-right: 5px;
+  text-align: center;
+}
+
+.cm_container li .cm_sub_span{
+  width: 1em;
+  display: inline-block;
+  text-align: center;
+  position: absolute;
+  top: 50%;
+  right: 0.5em;
+  transform: translateY(-50%);
+}
+
+.cm_container li > ul{
+  position: absolute;
+  top: 0;
+  left: 100%;
+  opacity: 0;
+  transition: opacity 0.2s;
+  visibility: hidden;
+}
+
+.cm_container li:hover > ul{
+  opacity: 1;
+  visibility: visible;
+}
+
+.cm_container li.cm_divider{
+  border-bottom: 1px solid #aaa;
+  margin: 5px;
+  padding: 0;
+  cursor: default;
+}
+
+.cm_container li.cm_divider:hover{
+  background-color: inherit;
+}
+
+.cm_container.cm_border_right > ul ul{
+  left: unset;
+  right: 100%;
+}
+
+.cm_container.cm_border_bottom > ul ul{
+  top: unset;
+  bottom: 0;
+}
+
+.cm_container li[disabled=""]{
+  color: #777;
+  cursor: default;
+}
+
+.cm_container li[disabled=""]:hover{
+  background-color: inherit;
+}

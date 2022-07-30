@@ -24,3 +24,9 @@ npm run build
     const a = CesiumPlugin.Calculation.getBearing(Cesium.Cartesian3.fromDegrees(112, 34), Cesium.Cartesian3.fromDegrees(112, 38));
     console.log(a);
 ```
+
+## 功能列表
+
+- 数据计算
+- 测量功能（长度、面积、高度）
+- 右键功能 

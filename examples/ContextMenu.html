@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cesium.com/downloads/cesiumjs/releases/1.74/Build/Cesium/Cesium.js"></script>
+    <link href="https://cesium.com/downloads/cesiumjs/releases/1.95/Build/Cesium/Widgets/widgets.css" rel="stylesheet">
+    <script src="../dist/cesium-plugin.js"></script>
+    <style>
+        @import url(main.css);
+    </style>
+</head>
+<body>
+    <div id="MapContainer" style="width: 100%;height: 100%"></div>
+    <script>
+      let viewer = new Cesium.Viewer("MapContainer", {
+        imageryProvider: new Cesium.UrlTemplateImageryProvider({
+          url: "https://c.tile.thunderforest.com/transport/{z}/{x}/{y}.png",
+          tilingScheme: new Cesium.WebMercatorTilingScheme(),
+          maximumLevel: 19,
+        }),
+        timeline: false,
+        animation: false,
+      });
+      new CesiumPlugin.ContextMenu(viewer);
+    </script>
+</body>
+</html>
