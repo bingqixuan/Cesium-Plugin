@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://cesium.com/downloads/cesiumjs/releases/1.74/Build/Cesium/Cesium.js"></script>
+    <link
+      href="https://cesium.com/downloads/cesiumjs/releases/1.95/Build/Cesium/Widgets/widgets.css"
+      rel="stylesheet"
+    />
+    <script src="../dist/cesium-plugin.js"></script>
+    <style>
+      @import url(main.css);
+    </style>
+  </head>
+  <body>
+    <div id="MapContainer" style="width: 100%; height: 100%"></div>
+    <script>
+        Cesium.Ion.defaultAccessToken =
+  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiJlYWE1OWUxNy1mMWZiLTQzYjYtYTQ0OS1kMWFjYmFkNjc5YzciLCJpZCI6NTc3MzMsImlhdCI6MTYyNzg0NTE4Mn0.XcKpgANiY19MC4bdFUXMVEBToBmqS8kuYpUlxJHYZxk";
+
+      let viewer = new Cesium.Viewer("MapContainer", {
+        timeline: false,
+        animation: false,
+      });
+      viewer.camera.setView({
+        destination: Cesium.Cartesian3.fromDegrees(108, 34, 10000000),
+        orientation: {
+          heading: 0,
+          pitch: -Math.PI / 2,
+          roll: 0,
+        },
+      });
+      Cesium.GeoJsonDataSource.load(
+        {
+          type: "FeatureCollection",
+          name: "hjklwjfklaejf",
+          crs: {
+            type: "name",
+            properties: { name: "urn:ogc:def:crs:OGC:1.3:CRS84" },
+          },
+          features: [
+            {
+              type: "Feature",
+              properties: {
+                length: 2676.8743258357663,
+                straightdis: 2311.6759875442472,
+                sinuosity: 1.1579798986792602,
+              },
+              geometry: {
+                type: "LineString",
+                coordinates: [
+                  [107.001931604349352, 33.045875420137754],
+                  [106.999551017329338, 33.041998383776452],
+                  [106.998081855054124, 33.039181723871678],
+                  [106.995034703668523, 33.037676427402509],
+                  [106.986600623940504, 33.038406271326927],
+                  [106.983512662491734, 33.037836081277618],
+                ],
+              },
+            },
+            {
+              type: "Feature",
+              properties: {
+                length: 1003.6733389523848,
+                straightdis: 1003.6733389523848,
+                sinuosity: 1.0,
+              },
+              geometry: {
+                type: "LineString",
+                coordinates: [
+                  [106.998204285243787, 33.048030522431766],
+                  [107.00629828111181, 33.044700924199937],
+                ],
+              },
+            },
+            {
+              type: "Feature",
+              properties: {
+                length: 1271.3062187595096,
+                straightdis: 1271.3062187595096,
+                sinuosity: 1.0,
+              },
+              geometry: {
+                type: "LineString",
+                coordinates: [
+                  [106.995633251262177, 33.045236861182346],
+                  [107.006026214023805, 33.041268569611738],
+                ],
+              },
+            },
+          ],
+        },
+        {
+          strokeWidth: 20,
+          clampToGround: true,
+        }
+      ).then((ds) => {
+        ds.entities.values.forEach((entity) => {
+          const lineLength = entity.properties.getValue(
+            Cesium.JulianDate.now()
+          ).length;
+
+          entity.polyline.material =
+            new CesiumPlugin.FlowLineMaterial.MaterialProperty({
+              color: Cesium.Color.CORNFLOWERBLUE,
+              imageHorizontalLength: 512,
+              lineHorizonlLength: lineLength,
+              duration: 20000,
+            });
+        });
+        viewer.flyTo(ds);
+        viewer.dataSources.add(ds);
+      });
+
+      
+    </script>
+  </body>
+</html>
